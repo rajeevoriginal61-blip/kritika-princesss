@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Little Mystery | For Kritika</title>
+<style>
+:root{--rose:#e8a0bb;--wine:#713b5b;--ink:#352638;--paper:#fff9f5;--gold:#e8c98b}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:Georgia,'Times New Roman',serif;background:radial-gradient(ellipse at 15% 15%,#573d59 0,transparent 38%),radial-gradient(ellipse at 90% 85%,#8c536d 0,transparent 42%),linear-gradient(135deg,#171522,#302137 55%,#1c1b2a);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:37px 37px}
+.heart-float{position:fixed;bottom:-45px;z-index:5;pointer-events:none;color:#ffd5e5;text-shadow:0 0 12px #ff9ec5aa;animation:heartRise linear forwards;opacity:0}
+@keyframes heartRise{0%{transform:translateY(0) translateX(0) rotate(-8deg) scale(.7);opacity:0}12%{opacity:.8}85%{opacity:.65}100%{transform:translateY(-115vh) translateX(var(--drift)) rotate(22deg) scale(1.25);opacity:0}}
+.wrap{min-height:100vh;display:grid;place-items:center;padding:24px 14px}
+.shell{width:min(690px,100%);min-height:580px;position:relative;overflow:hidden;border:1px solid #d9b6c76b;border-radius:25px;background:linear-gradient(145deg,#fffaf6f2,#f8eaf0f2);box-shadow:0 25px 90px #0008}
+.top{display:flex;justify-content:space-between;align-items:center;padding:20px 25px 0;font:11px Arial,sans-serif;letter-spacing:2px;color:#9a6b80;text-transform:uppercase}
+.progress{display:flex;gap:7px}.dot{width:7px;height:7px;border-radius:50%;background:#e8cad7}.dot.active{background:#8b496b;box-shadow:0 0 0 3px #e9cbd8}
+.page{display:none;min-height:525px;padding:35px clamp(22px,6vw,54px) 38px;text-align:center;animation:appear .65s ease both}
+.page.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
+@keyframes appear{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+.eyebrow{font:600 11px Arial,sans-serif;letter-spacing:4px;color:#a76b86;text-transform:uppercase;margin-bottom:17px}
+h1{font-size:clamp(34px,7vw,55px);font-weight:normal;line-height:1.12;color:#70415c;margin:0 0 17px}
+h2{font-size:clamp(27px,5vw,38px);font-weight:normal;color:#70415c;margin:0 0 18px}
+p{font-size:17px;line-height:1.8;max-width:510px;margin:0 auto 15px;color:#624d5b}
+.symbol{font-size:53px;margin-bottom:16px;filter:drop-shadow(0 4px 8px #c98da955)}
+.small{font:12px Arial,sans-serif;letter-spacing:1.4px;color:#a17b8e;margin:18px 0}
+button{border:0;border-radius:30px;padding:13px 25px;background:linear-gradient(120deg,#87506e,#b36b8b);color:#fff;font:600 13px Arial,sans-serif;letter-spacing:1px;cursor:pointer;box-shadow:0 8px 20px #89516b35;transition:.2s;margin-top:18px}
+button:hover{transform:translateY(-2px);filter:brightness(1.08)}
+button.secondary{background:transparent;color:#87506e;border:1px solid #c99ab0;box-shadow:none}
+.envelope{width:210px;height:137px;margin:20px auto 12px;position:relative;background:#dca0b8;border-radius:7px;box-shadow:0 15px 25px #89516b33;cursor:pointer}
+.envelope:before{content:"";position:absolute;inset:0;background:#edbfd0;clip-path:polygon(0 0,50% 56%,100% 0);transform-origin:top;transition:.7s;z-index:2}
+.envelope:after{content:"✦";position:absolute;z-index:3;left:calc(50% - 18px);top:43px;width:36px;height:36px;border-radius:50%;background:#fff4f7;color:#9c5a79;display:grid;place-items:center;font-size:20px}
+.envelope.open:before{transform:rotateX(180deg)}
+.clue{font-size:clamp(22px,5vw,30px);color:#87506e;line-height:1.6;margin:12px 0 20px}
+.reveal{padding:18px 20px;border:1px dashed #c997ad;border-radius:15px;background:#fffdfb;max-width:490px;margin:14px auto}
+.quote{font-style:italic;color:#87506e;font-size:20px}
+.final-card{background:#fffdfb;border-radius:18px;padding:25px 22px;border:1px solid #eed7e1;box-shadow:inset 0 0 25px #f9eaf0;max-width:520px}
+.final-card p{font-size:16px}
+.signature{color:#985b79;font-style:italic;margin-top:17px}
+.nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.footer{font:10px Arial,sans-serif;letter-spacing:2px;color:#b08b9d;margin-top:24px;text-transform:uppercase}
+@media(max-width:480px){.shell{min-height:610px}.page{min-height:555px;padding-top:30px}.top{padding:17px 18px 0}p{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="wrap"><main class="shell">
+ <div class="top"><span>✦ A small mystery</span><div class="progress"><i class="dot active"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div></div>
+
+ <section class="page active" data-page="0">
+  <div class="symbol">🌙</div><div class="eyebrow">A note that found its way to you</div>
+  <h1>Something<br>is waiting, Kritika.</h1>
+  <p>Not every little surprise should reveal itself at once. Some are better discovered, one page at a time.</p>
+  <div class="envelope" id="env" role="button" tabindex="0" aria-label="Open mysterious envelope"></div>
+  <div class="small">A LITTLE CURIOSITY NEVER HURT</div>
+  <button onclick="go(1)">Begin the mystery →</button>
+ </section>
+
+ <section class="page" data-page="1">
+  <div class="symbol">🔐</div><div class="eyebrow">Chapter 01 · The first clue</div>
+  <h2>A tiny secret</h2>
+  <p>Here's your first clue:</p>
+  <div class="reveal"><div class="clue">“I appear without being invited,<br>and make an ordinary moment brighter.”</div></div>
+  <p>It's not a place, not a thing… but it can change the mood of an entire day.</p>
+  <div class="small">HAVE YOU GUESSED IT?</div>
+  <button onclick="go(2)">Reveal the next page →</button>
+ </section>
+
+ <section class="page" data-page="2">
+  <div class="symbol">✨</div><div class="eyebrow">Chapter 02 · The answer</div>
+  <h2>It's your smile.</h2>
+  <p>That's the little thing this mystery was pointing to. A simple smile can make conversations warmer and everyday moments feel a little less ordinary.</p>
+  <div class="reveal"><p class="quote">“Some people don't need to do anything extraordinary to make a moment memorable.”</p></div>
+  <p>And now… one last page. The actual reason this little note exists.</p>
+  <button onclick="go(3)">One last page →</button>
+ </section>
+
+ <section class="page" data-page="3">
+  <div class="symbol">👑</div><div class="eyebrow">Chapter 03 · The little reveal</div>
+  <h2>Happy Princess Day, Kritika!</h2>
+  <div class="final-card">
+   <p>Dear Kritika,</p>
+   <p>Hope your day is filled with laughter, lovely surprises and all the happiness you deserve. Keep being your cheerful, kind and wonderfully unique self.</p>
+   <p>You don't need a crown to make today feel special. Just keep being you — that's more than enough.</p>
+   <p>May this new year of moments bring you confidence, beautiful memories and plenty of reasons to smile. 💗</p>
+   <p class="signature">Wishing you a magical Princess Day ✨</p>
+  </div>
+  <div class="nav"><button class="secondary" onclick="go(0)">↺ Read again</button></div>
+  <div class="footer">The mystery ends. The good wishes stay. ♡</div>
+ </section>
+</main></div>
+<script>
+let current=0;
+function makeHeart(){
+ const h=document.createElement('span');h.className='heart-float';
+ h.textContent=['♡','♥','💕','ღ'][Math.floor(Math.random()*4)];
+ h.style.left=(Math.random()*100)+'vw';
+ h.style.fontSize=(14+Math.random()*22)+'px';
+ h.style.setProperty('--drift',(Math.random()*100-50)+'px');
+ h.style.animationDuration=(7+Math.random()*6)+'s';
+ document.body.appendChild(h);
+ h.addEventListener('animationend',()=>h.remove());
+}
+for(let i=0;i<12;i++) setTimeout(makeHeart,i*420);
+setInterval(makeHeart,850);
+function go(n){const pages=[...document.querySelectorAll('.page')];pages[current].classList.remove('active');current=n;pages[current].classList.add('active');document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===current));window.scrollTo({top:0,behavior:'smooth'});}
+const env=document.getElementById('env');env.addEventListener('click',()=>env.classList.toggle('open'));env.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();env.classList.toggle('open');}});
+</script>
+</body>
+</html>
